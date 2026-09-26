@@ -1,48 +1,32 @@
-#include<iostream>
-#include<vector>
-using namespace std;
-
-void readArray(vector<int> ar)
+void MoveZeroToEnd(vector<int>& ar)
 {
+    int index=0;
     for(int i=0; i<ar.size(); i++)
     {
-        cout << ar[i] << " ";
-    }
-}
-
-int SumArray(vector<int> ar)
-{
-    int sum = 0;
-    for(int i=0; i<ar.size(); i++)
-    {
-        sum += ar[i];
-    }
-    return sum;
-}
-
-// Linear Search in Array
-void LinearSearch(vector<int> ar , int target){
-    if(ar.size()==0)
-    {
-        cout<<"Empty Array.";
-    }
-
-    for(int i=0; i<ar.size();i++)
-    {
-        if(ar[i]==target){
-            cout<<"Target Element Present At :" << i << " Index.";
-            return;
+        if(ar[i]!=0)
+        {
+            ar[index]=ar[i];
+            index++;
         }
+
+    }
+    while (index<ar.size())
+    {
+        ar[index]=0;
+        index++;
     }
 
-    cout<<"Target Element Not Present In Array.";
+    readArray(ar);
+    
 }
 
 
 int main()
 {
-   vector<int> ar = {1, 2, 3, 4, 5};
-
-    LinearSearch(ar,2);
+   vector<int> ar = {0, 1, 0 ,3 ,12};
+   readArray(ar);
+   MoveZeroToEnd(ar);
+   
+    
     return 0;
-}
+}   
