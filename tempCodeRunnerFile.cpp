@@ -30,7 +30,7 @@ void LinearSearch(vector<int> ar , int target){
     for(int i=0; i<ar.size();i++)
     {
         if(ar[i]==target){
-            cout<<"Target Element Present At : " << i << " Index.";
+            cout<<"Target Element Present At :" << i << " Index.";
             return;
         }
     }
