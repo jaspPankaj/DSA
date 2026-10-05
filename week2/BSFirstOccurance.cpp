@@ -4,7 +4,7 @@ using namespace std;
 
 
 //Binary Search Insert Position.
-int BinarySearchLastOccurance(vector<int>& arr, int target)
+int BinarySearchFirstOccurance(vector<int>& arr, int target)
 {
     int left = 0;
     int right =  arr.size()-1;
@@ -16,7 +16,7 @@ int BinarySearchLastOccurance(vector<int>& arr, int target)
 
         if(arr[mid] == target){
             answer=mid;  //ans=4
-            left=mid+1; 
+            right=mid-1; 
         }
         else if(arr[mid] < target){
             left = mid + 1;
@@ -34,15 +34,15 @@ int BinarySearchLastOccurance(vector<int>& arr, int target)
 int main(){
 
     vector<int> arr = {1, 2, 2, 2,3,3,3, 4, 5};
-    int target = 2;
+    int target = 3;
 
-    int result = BinarySearchLastOccurance(arr,target);
+    int result = BinarySearchFirstOccurance(arr,target);
     
     if(result ==-1){
         cout<<"Target is not found in the array.";
     }
     else{
-        cout<<"Target value Last occurance at  : "<<result<<" Index.";
+        cout<<"Target value first occurance at  : "<<result<<" Index.";
     }    
     
     
