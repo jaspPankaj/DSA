@@ -272,7 +272,7 @@ void ArrayLeftRotatio(vector<int>& ar, int k)
 }
 
 // Array Right Rotatio
-void ArrayLeftRotatio(vector<int>& ar, int k)
+void ArrayRightRotation(vector<int>& ar, int k)
 {
     if(ar.empty()){
         cout<<"Array is Empty";
@@ -315,6 +315,8 @@ void MoveZeroToEnd(vector<int>& ar)
     readArray(ar);
     
 }
+
+
 
 
 int main()
