@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My Form</title>
+  </head>
+
+  <body>
+    <!-- Write your form here -->
+    <form>
+      <label for="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        placeholder="Enter your name"
+        required
+        name="name"
+      />
+
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter your Email"
+        required
+        name="email"
+      />
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter your password"
+        required
+        name="password"
+      />
+
+      <label for="message">Message</label>
+      <textarea
+        name="message"
+        id="message"
+        placeholder="Enter your message here"
+        required
+      ></textarea>
+
+      <!-- checkbox button which make tham select multiple boxes  -->
+
+      <input type="checkbox" id="html" name="skills" value="HTML" />
+      <label for="html">HTML</label>
+
+      <input type="checkbox" id="css" name="skills" value="CSS" />
+      <label for="css">CSS</label>
+
+      <input type="checkbox" id="js" name="skills" value="JavaScript" />
+      <label for="js">JavaScript</label>
+
+      <!-- Radio Buttons ( that make only one selection possible ) -->
+      <!-- Radio buttons that belong to the same group must have the same name. -->
+
+      <input type="radio" id="Beginner" name="level" value="Beginner" />
+      <label for="Beginner">Beginner</label>
+
+      <input type="radio" id="Intermediate" name="level" value="Intermediate" />
+      <label for="Intermediate">Intermediate</label>
+
+      <input type="radio" id="Advanced" name="level" value="Advanced" />
+      <label for="Advanced">Advanced</label>
+
+      <!-- Drop - down menu  -->
+      <label for="course">Select the Course</label>
+
+      <select name="course" id="course" required>
+        <option value="" selected disabled>-- Select a skill --</option>
+        <option value="HTML">HTML</option>
+        <option value="CSS">CSS</option>
+        <option value="Python">Python</option>
+        <option value="C++">C++</option>
+      </select>
+
+      <label for="age" id="age">Age</label>
+      <input type="number" id="age" name="age" min="18" max="60" required />
+
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" name="dob" required />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- file uploadation  -->
+
+    <label for="photo">Profile Photo</label>
+    <input type="file" id="photo" name="photo" accept="image/*" required />
+
+    <!-- type of buttons  -->
+
+    <button type="submit">Register</button>
+    <button type="reset">Clear form</button>
+
+    <label for="username">Username</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      pattern="[A-Za-z]+"
+      title="Use letters only"
+      required
+    />
+
+    <!-- <fieldset> groups related form controls and typically draws a border.
+    <legend> gives that group a title. -->
+
+    <fieldset>
+      <legend>Education Details</legend>
+
+      <label for="college-name">College Name</label>
+      <input type="text" name="college_name" id="college-name" required />
+
+      <label for="degree">Degree</label>
+      <input type="text" name="degree" id="degree" required />
+    </fieldset>
+
+    <label for="course">Choose a course:</label>
+
+    <!--<optgroup> in dropdowns
+Sometimes dropdown choices belong to different categories. The <optgroup> tag lets us group related options. -->
+    <select id="course" name="course">
+      <optgroup label="Frontend">
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+      </optgroup>
+
+      <optgroup label="Backend">
+        <option value="python">Python</option>
+        <option value="django">Django</option>
+      </optgroup>
+    </select>
+
+    <!-- One important distinction: <datalist> suggests choices but doesn't restrict the user to them. A <select> dropdown, by contrast, normally restricts choices to its listed options. -->
+
+    <label for="programming-language">Choose a Programming Language</label>
+
+    <input
+      list="programming-language"
+      id="programming-language"
+      name="programming_language"
+    />
+
+    <datalist id="programming-language">
+      <option value="Python"></option>
+      <option value="Java"></option>
+      <option value="C++"></option>
+      <option value="JavaScript"></option>
+    </datalist>
+    
+  </body>
+</html>

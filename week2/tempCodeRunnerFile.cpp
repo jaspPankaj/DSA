@@ -2,51 +2,62 @@
 #include <vector>
 using namespace std;
 
+int RotatedSortedSearch(vector<int>& arr, int target) {
 
-//Binary Search Insert Position.
-int BinarySearchLastOccurance(vector<int>& arr, int target)
-{
     int left = 0;
-    int right =  arr.size()-1;
-    int answer;
-    while(left <=  right){
-        // arr = {1, 2, 2, 2,3,3,3, 4, 5}; l=0 r=3 
+    int right = arr.size() - 1;
 
-        int mid = left + ( right - left) / 2; 
+    while (left <= right) {
 
-        if(arr[mid] == target){
-            answer=mid;  //ans=4
-            left=mid+1; 
+        int mid = left + (right - left) / 2;
+
+        // Target found
+        if (arr[mid] == target) {
+            return mid;
         }
-        else if(arr[mid] < target){
-            left = mid + 1;
+
+        // Left half is sorted
+        if (arr[left] <= arr[mid]) {
+
+            // Target lies in the sorted left half
+            if (arr[left] <= target && target < arr[mid]) {
+                right = mid - 1;
+            }
+            else {
+                left = mid + 1;
+            }
         }
-        else{
-            right = mid - 1;
+
+        // Right half is sorted
+        else {
+
+            // Target lies in the sorted right half
+            if (arr[mid] < target && target <= arr[right]) {
+                left = mid + 1;
+            }
+            else {
+                right = mid - 1;
+            }
         }
     }
-    return answer;
-   
 
+    return -1;
 }
 
+int main() {
 
-int main(){
+    vector<int> arr = {5, 6, 7, 8, 9, 10, 1, 2, 3, 4};
 
-    vector<int> arr = {1, 2, 2, 2,3,3,3, 4, 5};
-    int target = 2;
+    int target = 3;
 
-    int result = BinarySearchLastOccurance(arr,target);
-    
-    if(result ==-1){
-        cout<<"Target is not found in the array.";
+    int result = RotatedSortedSearch(arr, target);
+
+    if (result == -1) {
+        cout << "Target is not found in the array.";
     }
-    else{
-        cout<<"Target value Last occurance at  : "<<result<<" Index.";
-    }    
-    
-    
-      
-    return 0;
+    else {
+        cout << "Target is present at : " << result;
+    }
 
+    return 0;
 }
