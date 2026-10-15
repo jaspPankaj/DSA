@@ -1,44 +1,80 @@
+// #include <iostream>
+// #include <vector>
+
+// using namespace std;
+
+// vector<int> NextGreater(vector<int> arr){
+//     // Initialize the result vector with -1 of the same size as arr
+//     vector<int> ng(arr.size(), -1); 
+        
+//     for(int i = 0; i < arr.size(); i++){
+//         for(int j = i + 1; j < arr.size(); j++){ // Start from i + 1
+//              if(arr[j] > arr[i]){
+//                 ng[i] = arr[j]; // Store the greater element for index i
+//                 break;
+//              }
+//         }
+//     }
+    
+//     return ng;
+// }
+
+// int main(){
+//    vector<int> arr = {4 , 6 , 7 , 1 , 10};
+//    vector<int> ng = NextGreater(arr);
+
+//    for(int i = 0; i < ng.size(); i++){
+//        cout << ng[i] << " ";
+//    }
+//    cout << endl;
+   
+//    return 0;
+// }
+
+
+
+
+
 
 #include <iostream>
-#include <string>
+#include <vector>
 #include <stack>
+
 using namespace std;
 
-bool balancedStack(string s) {
-    stack<char> ch;
+vector<int> NextGreater(vector <int> &arr){
 
-    for (int i = 0; i < s.size(); i++) {
-        char a = s[i];
+    int n = arr.size();
+    vector<int> ans(n);
+    stack<int> st;
 
-        if (a == '(' || a == '[' || a == '{') {
-            ch.push(a);
+    for(int i = n; i >= 0; i--){
+        while(!st.empty() && st.top() <= arr[i]){
+            st.pop();
         }
-        else {
-            if (ch.empty()) {
-                return false;
-            }
 
-            char top = ch.top();
-
-            if ((a == ')' && top != '(') ||
-                (a == ']' && top != '[') ||
-                (a == '}' && top != '{')) {
-                return false;
-            }
-
-            ch.pop();
+        if(st.empty()){
+            ans[i] = -1;
         }
+        else{
+            ans[i] = st.top();
+        }
+
+        st.push(arr[i]);
     }
-
-    return ch.empty();
+   return ans;
 }
 
-int main() {
-    string s1 = "{[()]}";
-    string s2 = "([)]";
 
-    cout << balancedStack(s1) << endl;
-    cout << balancedStack(s2) << endl;
+
+int main(){
+     vector<int> arr = {3, 7, 4, 9};
+
+    vector<int> ans = NextGreater(arr);
+
+    for (int i = 0; i < ans.size(); i++) {
+        cout << ans[i] << " ";
+    }
 
     return 0;
 }
